@@ -2,7 +2,7 @@
 # It looks for low volatility stocks that are seeing an increase in price from open
 # It then looks for options for that stock that have "bargain" prices
 # Stock criteria for finviz: Optionable, up 3% from open, average volume over 500k, ordered by lowest volatility
-# Options criteria: Calls with strike prices 1-3 levels above underlying stock price  , closest expiration date
+# Options criteria: Calls with strike prices 1-3 levels above underlying stock price with last price <= 0.05 , closest expiration date
 
 from pushbullet import Pushbullet
 import traceback
