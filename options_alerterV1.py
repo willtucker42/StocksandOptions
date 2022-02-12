@@ -1,8 +1,10 @@
 # This script scrapes finviz and yahoo finance using selenium
 # It looks for low volatility stocks that are seeing an increase in price from open
 # It then looks for options for that stock that have "bargain" prices
+# If it finds an option chain with bargain prices it sends a push notification to my phone
 # Stock criteria for finviz: Optionable, up 3% from open, average volume over 500k, ordered by lowest volatility
 # Options criteria: Calls with strike prices 1-3 levels above underlying stock price with last price <= 0.05 , closest expiration date
+
 
 from pushbullet import Pushbullet
 import traceback
@@ -74,21 +76,7 @@ def getOptionDataForTickerSymbol(ticker):
                     push = pb.push_note('$' + ticker + "("+str(current_stock_price)+")", "" + str(strike_price) + "C - Last price: " + str(last_price))
             print("Strike: " + str(strike_price) + ", Last price: " + str(last_price))
             last_strike = float(strike_price)
-
-        # for r in rwdata:
-        #     info = str(r.text)
-        #     if "P0" in info:
-        #         break
-        #     print("1")
-        #     print(info)
-        #     # seperated_string = info.splitlines()
-        #     # print(seperated_string)
-        # links = driver.find_elements_by_xpath('//a')
-        # for link in links:
-        #     class_ = link.get_attribute('class')
-        #     # print(class_)
-        #     if class_ is not None and class_ == "C($linkColor) Fz(s)":
-        #         print(link.text)
+     print(link.text)
     except Exception:
         print("\n\n ERROR AFTER GETTING PAGE DATA \n\n")
         print(traceback.format_exc())
