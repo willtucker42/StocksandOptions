@@ -15,7 +15,7 @@ options = Options()
 options.add_argument("--window-size=1920,1080")
 options.add_argument("--disable-gpu")
 options.add_argument("--headless")
-PUSHBULLET_API_KEY = "o.sFSmq3qn2L7ZwD3acBTU2eRHGEmgXll3"
+PUSHBULLET_API_KEY = "-"
 
 
 def getTickerSymbolsForRisingStocks():
